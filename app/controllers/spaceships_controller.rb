@@ -1,6 +1,6 @@
 class SpaceshipsController < ApplicationController
 def index
-    @spaceship = Spaceship.all
+    @spaceships = Spaceship.all
   end
 
   def indexx
