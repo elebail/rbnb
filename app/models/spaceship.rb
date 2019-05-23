@@ -4,5 +4,5 @@ class Spaceship < ApplicationRecord
   mount_uploader :photo, PhotoUploader
 
   validates :name, presence: true
-  validates :price, numericallity: { only_integer: true }
+  validates :price, presence: true
 end
