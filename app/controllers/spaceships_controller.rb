@@ -9,9 +9,12 @@ class SpaceshipsController < ApplicationController
 
   def new
     @spaceship = Spaceship.new
+
+
   end
 
   def create
+
     @spaceship = Spaceship.new(set_spaceship)
     @spaceship.user_id = current_user.id
     if @spaceship.save
