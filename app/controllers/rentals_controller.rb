@@ -9,6 +9,7 @@ class RentalsController < ApplicationController
     @rental = Rental.new(rental_params)
     @rental.user_id = current_user.id
     @rental.spaceship = @spaceship
+    @rental.accepted = false
     if @rental.save
       redirect_to dashboard_path
     else
