@@ -20,6 +20,8 @@
         <%= f.input :password_confirmation,
                     required: true,
                     input_html: { autocomplete: "new-password" } %>
+        <%= f.input :photo, :input_html => { :class => 'photo-input' } %>
+        <%= f.input :photo_cache, as: :hidden %>
                      <%= f.button :submit, class: "btna btn-outline-warning" %>
                       <%= render "devise/shared/links", class: "btn btn-outline-dark" %>
       </div>
