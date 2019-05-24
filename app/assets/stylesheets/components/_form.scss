@@ -29,6 +29,31 @@
   width: 100%;
   margin-bottom: 30px;
 }
+.form-style a {
+  margin-right: 0 auto;
+  background-color: transparent; /* Green */
+  border: 1px solid #e67e2e;
+  color: #e67e2e;
+  padding: 6px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius:10px;
+}
+.form-style a:hover {
+
+  background-color: #e67e2e; /* Green */
+  border: 1px solid #e67e2e;
+  color: white;
+  padding: 6px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius:10px;
+
+}
 //Champs du form
 .input {
   -webkit-appearance: menulist-button;
