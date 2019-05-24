@@ -1,0 +1,42 @@
+//Bouton du "Create spaceship "
+.btna{
+  border-radius:10px;
+}
+.bouton:hover{
+  background-color: transparent;
+  color: white;
+  border-radius:10px;
+}
+//Form
+.form-style{
+  color:#e67e2e;
+  border: 3px solid #e67e2e;
+  max-width: 600px;
+  padding: 10px 20px;
+  margin: 10px auto;
+  padding: 20px;
+  background-color: transparent;
+  border-radius: 8px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+.form-style select {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  border: none;
+  border-radius: 4px;
+  font-size: 15px;
+  margin: 0;
+  padding: 10px;
+  width: 100%;
+  margin-bottom: 30px;
+}
+//Champs du form
+.input {
+  -webkit-appearance: menulist-button;
+  height:35px;
+  background-color: black;
+}
+// Choisir le fichier
+.photo-input {
+  background-color: transparent !important;
+}
+

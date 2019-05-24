@@ -1,0 +1,8 @@
+<div class="container">
+  <h3>Request this ship</h3>
+  <%= simple_form_for [@spaceship, @rental] do |f| %>
+    <%= f.input :start_date %>
+    <%= f.input :end_date %>
+    <%= f.button :submit, "RENT IT", class: "btn btn-outline-warning" %>
+  <% end %>
+</div>

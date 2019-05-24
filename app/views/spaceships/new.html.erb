@@ -1,9 +1,23 @@
-<div class="container">
-  <%= simple_form_for [@spaceship ] do |f| %>
-  <%= f.input :name, placeholder: "Spaceship's name" %>
-  <%= f.input :price %>
-  <%= f.input :photo, value: "ghj" %>
-  <%= f.input :photo_cache, as: :hidden %>
-  <%= f.button :submit, :class => "btn btn-primary" %>
-<% end %>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1464802686167-b939a6910659?ixlib=rb-1.2.1&auto=format&fit=crop&w=1033&q=80');">
+ <div class="form-style">
+   <div class="row justify-content-center">
+     <h1>Add your spaceship :</h1>
+     <div class="col-sm-6 col-md-12">
+       <%= simple_form_for [@spaceship ] do |f| %>
+         <%= f.input :name, placeholder: "Spaceship's name", :input_html => { :class => 'input' } %>
+         <%= f.input :description, placeholder: "Description..", :input_html => { :class => 'input' } %>
+         <%= f.input :max_capacity, placeholder: "Maximum capacity", :input_html => { :class => 'input' } %>
+         <%= f.input :price ,placeholder: "Spaceship's price", :input_html => { :class => 'input' } %>
+         <%= f.input :photo, :input_html => { :class => 'photo-input' } %>
+         <%= f.input :photo_cache, as: :hidden %>
+         <div class="row justify-content-center">
+           <%= f.button :submit, class: "btna btn-outline-warning" %>
+         </div>
+       <% end %>
+      </div>
+    </div>
+   </div>
+ <div class="row justify-content-center">
+   <%= link_to "Back to all spaceships", spaceships_path, class: "btn btn-outline-dark" %>
+ </div>
 </div>
