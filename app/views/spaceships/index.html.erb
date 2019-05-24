@@ -1,10 +1,10 @@
-<div class="background" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url('https://images.unsplash.com/photo-1462331940025-496dfbfc7564?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjF9&auto=format&fit=crop&w=1054&q=80');">
+<div class="background">
   <div class="container text-center">
     <h1 class="pt-5 text-white">Choose a spacecraft !</h1>
 
     <div class="row justify-content-center">
       <% @spaceships.each do |spaceship| %>
-        <div class="col-4 px-4">
+        <div class="col-4 mx-4">
           <div class="card-trip">
             <img src="<%= spaceship.photo %>" onerror="this.onerror=null;this.src='https://www.hexapolis.com/wp-content/uploads/2014/11/Thomas-Richner_Cardboard-Millennium-Falcon.jpg'">
             <div class="card-trip-infos my-2">
@@ -15,7 +15,7 @@
               <h2 class="card-trip-pricing"><%= spaceship.price %>G$</h2>
               <img src='<% spaceship.user.photo %>' class="card-trip-user avatar-bordered" onerror="this.onerror=null;this.src='https://medias.spotern.com/spots/w640/60642-1532336916.jpg'"/>
             </div>
-            <%= link_to "", spaceship_path(spaceship), class: "stretched-link" %>
+            <%= link_to "", spaceship_path(spaceship), class: "stretched-link card-link" %>
           </div>
         </div>
       <% end %>
