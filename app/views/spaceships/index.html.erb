@@ -1,21 +1,23 @@
 <div class="background">
   <div class="container text-center">
-    <h1 class="pt-5 text-white">Choose a spacecraft !</h1>
+    <h1 class="pt-5 text-white">CHOOSE YOUR SPACECRAFT !</h1>
 
     <div class="row justify-content-center">
       <% @spaceships.each do |spaceship| %>
-        <div class="col-4 mx-4">
-          <div class="card-trip">
-            <img src="<%= spaceship.photo %>" onerror="this.onerror=null;this.src='https://www.hexapolis.com/wp-content/uploads/2014/11/Thomas-Richner_Cardboard-Millennium-Falcon.jpg'">
-            <div class="card-trip-infos my-2">
-              <div>
-                <h2><%= spaceship.name %></h2>
-                <p><%= spaceship.description %></p>
+        <div class="col-4">
+          <div class="mx-4 my-5">
+            <div class="card-trip">
+              <img src="<%= spaceship.photo %>" onerror="this.onerror=null;this.src='https://www.hexapolis.com/wp-content/uploads/2014/11/Thomas-Richner_Cardboard-Millennium-Falcon.jpg'">
+              <div class="card-trip-infos">
+                <div>
+                  <h2><%= spaceship.name %></h2>
+                  <p><%= spaceship.description %></p>
+                </div>
+                <h2 class="card-trip-pricing"><%= spaceship.price %>G$</h2>
+                <img src='<% spaceship.user.photo %>' class="card-trip-user avatar-bordered" onerror="this.onerror=null;this.src='https://medias.spotern.com/spots/w640/60642-1532336916.jpg'"/>
               </div>
-              <h2 class="card-trip-pricing"><%= spaceship.price %>G$</h2>
-              <img src='<% spaceship.user.photo %>' class="card-trip-user avatar-bordered" onerror="this.onerror=null;this.src='https://medias.spotern.com/spots/w640/60642-1532336916.jpg'"/>
+              <%= link_to "", spaceship_path(spaceship), class: "stretched-link card-link" %>
             </div>
-            <%= link_to "", spaceship_path(spaceship), class: "stretched-link card-link" %>
           </div>
         </div>
       <% end %>

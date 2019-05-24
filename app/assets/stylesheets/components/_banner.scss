@@ -1,6 +1,5 @@
 .banner {
   background-size: cover;
-  background-position: center;
   background-repeat: no-repeat;
   padding: 150px 0;
   height: 100vh;
@@ -24,6 +23,10 @@
 
   a {
     color: white;
+  }
+
+  img {
+    position: top;
   }
 }
 
