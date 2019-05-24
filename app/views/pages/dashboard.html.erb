@@ -6,8 +6,11 @@
         <div class="my-spaceships">
           <h2>My spaceships :</h2>
           <ul>
+            <li><div class="card-product add justify-content-center">
+                  <h2><%= link_to "+", new_spaceship_path, class: "add-ship stretched-link" %></h2>
+              </div></li>
             <% current_user.spaceships.each do |spaceship| %>
-              <li><div class="card-product">
+              <li><div class="card-product spaceship-item">
                 <%= cl_image_tag spaceship.photo %>
                 <div class="card-product-infos">
                   <h2><%= link_to spaceship.name, spaceship_path(spaceship), class: "stretched-link" %></h2>

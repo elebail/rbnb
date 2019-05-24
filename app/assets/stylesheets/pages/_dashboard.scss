@@ -9,7 +9,7 @@
 }
 
 .dashboard {
-  color: rgba(255,255,255,0.7);
+
   a {
     color: rgba(255,255,255,0.7);
   }
@@ -32,4 +32,19 @@
 .white {
   color: white;
   font-weight: bold;
+}
+
+.add-ship {
+  font-size: 120px;
+  color: #e67e2e !important;
+  font-weight: lighter;
+}
+
+.add-ship:hover {
+  color:white !important;
+}
+
+.add:hover {
+  color: white !important;
+  border: 2px solid white;
 }
