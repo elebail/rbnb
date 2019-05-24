@@ -9,10 +9,14 @@
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
-  <body style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(<%= image_path 'background-banner-space.jpg' %>);">
+  <% if params[:action] == "home" %>
+    <body>
+  <% else %>
+    <body style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(<%= image_path 'background-banner-space.jpg' %>);">
+  <% end %>
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
-    <div class="mt-5">
+    <div class="<%= params[:action] == 'home' ? "" : "mt-5" %>">
       <%= yield %>
     </div>
     <%= javascript_include_tag 'application' %>
