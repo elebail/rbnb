@@ -5,6 +5,6 @@ Rails.application.routes.draw do
 
   resources :rentals, only: [:edit, :update]
   resources :spaceships, only: [:index, :show, :new, :create] do
-    resources :rentals, only: [:create]
+    resources :rentals, only: [:new, :create]
   end
 end
