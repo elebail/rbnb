@@ -1,1 +1,41 @@
-<h1>Hello, this is a dashboard</h1>
+<div class="container">
+<h1>Hey <%= current_user.name %> ! Welcome in your dashboard</h1>
+  <div class="dashboard">
+    <div class="row">
+      <div class="col-sm-12 col-md-4">
+        <div class="my-spaceships">
+          <h2>My spaceships :</h2>
+          <ul>
+            <% current_user.spaceships.each do |spaceship| %>
+              <li><%= spaceship.name %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-4">
+        <div class="my-rentals">
+          <h2>My rentals :</h2>
+          <ul>
+            <% current_user.rentals.each do |rental| %>
+              <li><%= Spaceship.find(rental.spaceship_id).name %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-4">
+        <div class="my-spaceships-pending-rentals">
+          <h2>My pending rentals :</h2>
+          <ul>
+            <% current_user.spaceships.each do |spaceship| %>
+              <% spaceship.rentals.each do |rental| %>
+                <% unless rental.accepted %>
+                  <li><%= spaceship.name %></li>
+                <% end %>
+              <% end %>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

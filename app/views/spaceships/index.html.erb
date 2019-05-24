@@ -1,0 +1,19 @@
+<h1>Choose a spacecraft !</h1>
+
+<div class="row justify-content-center">
+  <% @spaceships.each do |spaceship| %>
+    <div class="col-4 px-4">
+      <div class="card-trip">
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg">
+        <div class="card-trip-infos">
+          <div>
+            <h2><%= spaceship.name %></h2>
+            <p><%= spaceship.description %></p>
+          </div>
+          <h2 class="card-trip-pricing"><%= spaceship.price %>G$</h2>
+          <img src='https://kitt.lewagon.com/placeholder/users/krokrob' class="card-trip-user avatar-bordered"/>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

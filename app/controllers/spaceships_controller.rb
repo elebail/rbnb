@@ -1,10 +1,6 @@
 class SpaceshipsController < ApplicationController
-def index
+  def index
     @spaceships = Spaceship.all
-  end
-
-  def indexx
-    @spaceship = Spaceship.all
   end
 
   def show
@@ -16,7 +12,6 @@ def index
   end
 
   def create
-
     @spaceship = Spaceship.new(set_spaceship)
     @spaceship.user_id = current_user.id
     if @spaceship.save
@@ -27,8 +22,7 @@ def index
   end
 
   def destroy
-        @spaceship = Spaceship.find(params[:id])
-
+    @spaceship = Spaceship.find(params[:id])
     @spaceship.destroy
     redirect_to spaceship_path
   end
