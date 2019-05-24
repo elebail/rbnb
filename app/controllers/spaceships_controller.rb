@@ -9,12 +9,9 @@ class SpaceshipsController < ApplicationController
 
   def new
     @spaceship = Spaceship.new
-
-
   end
 
   def create
-
     @spaceship = Spaceship.new(set_spaceship)
     @spaceship.user_id = current_user.id
     if @spaceship.save
@@ -33,6 +30,6 @@ class SpaceshipsController < ApplicationController
   private
 
   def set_spaceship
-    params.require(:spaceship).permit(:name, :price, :photo)
+    params.require(:spaceship).permit(:name, :price, :photo, :description, :max_capacity)
   end
 end
