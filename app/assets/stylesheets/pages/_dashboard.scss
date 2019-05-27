@@ -52,3 +52,45 @@
   color: white !important;
   border: 2px solid white;
 }
+
+.tab {
+  overflow: hidden;
+  border-bottom: 1px solid #e67e2e;
+}
+
+.tab button {
+  background-color: inherit;
+  color: white;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 20px;
+}
+
+.tab button:hover {
+  background-color: #e67e2e;
+  color: black;
+}
+
+.tab button.active {
+  color: #e67e2e;
+}
+
+.tab button.active:hover{
+  background-color: transparent;
+}
+
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+
+  &.active {
+    display: block;
+  }
+
+}
