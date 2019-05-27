@@ -13,7 +13,7 @@
                   <h2><%= spaceship.name %></h2>
                 </div>
                 <h2 class="card-trip-pricing"><%= spaceship.price %>G$</h2>
-                <img src='<% spaceship.user.photo %>' class="card-trip-user avatar-bordered" onerror="this.onerror=null;this.src='https://medias.spotern.com/spots/w640/60642-1532336916.jpg'"/>
+                <img src='<%= User.find(spaceship.user_id).photo %>' class="card-trip-user avatar-bordered" onerror="this.onerror=null;this.src='https://medias.spotern.com/spots/w640/60642-1532336916.jpg'"/>
               </div>
               <%= link_to "", spaceship_path(spaceship), class: "stretched-link card-link" %>
             </div>
