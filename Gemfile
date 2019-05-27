@@ -1,13 +1,16 @@
 source 'https://rubygems.org'
 ruby '2.5.3'
 
+gem 'jquery-ui-rails', '~> 5.0.5'
+gem 'jquery'
 gem 'bootsnap', require: false
 gem 'jbuilder', '~> 2.0'
 gem 'pg', '~> 0.21'
 gem 'puma'
 gem 'rails', '5.2.3'
 gem 'redis'
-
+gem 'bootstrap-datepicker-rails', :require => 'bootstrap-datepicker-rails',
+                          :git => 'git://github.com/Nerian/bootstrap-datepicker-rails.git'
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.6.1'
 gem 'sassc-rails'

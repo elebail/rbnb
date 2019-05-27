@@ -58,10 +58,29 @@
 .input {
   -webkit-appearance: menulist-button;
   height:35px;
-  background-color: black;
+  background-color: black ;
 }
 // Choisir le fichier
 .photo-input {
   background-color: transparent !important;
 }
-
+.datepicker{
+  -webkit-appearance: menulist-button;
+  height:35px;
+  background-color: black !important;
+}
+.datepicker:hover{
+  -webkit-appearance: menulist-button;
+  height:35px;
+  background-color: white !important;
+}
+.form-control {
+  -webkit-appearance: menulist-button;
+  height:35px;
+  background-color: black ;
+}
+.form-control:hover {
+  -webkit-appearance: menulist-button;
+  height:35px;
+  background-color: white ;
+}

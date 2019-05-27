@@ -1,8 +1,12 @@
 <div class="container">
   <h3>Request this ship</h3>
-  <%= simple_form_for [@spaceship, @rental] do |f| %>
-    <%= f.input :start_date %>
-    <%= f.input :end_date %>
-    <%= f.button :submit, "RENT IT", class: "btn btn-outline-warning" %>
-  <% end %>
+  <div class="row justify-content-center">
+    <div class="form-style">
+      <%= simple_form_for [@spaceship, @rental] do |f| %>
+        <%= f.input :start_date, as: :string, :input_html => { class: "datepicker" } %>
+        <%= f.input :end_date , as: :string, :input_html => { class: "datepicker" }%>
+        <%= f.button :submit, "RENT IT", class: "btn btn-outline-warning" %>
+      <% end %>
+    </div>
+  </div>
 </div>
