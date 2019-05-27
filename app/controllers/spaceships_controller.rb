@@ -1,6 +1,6 @@
 class SpaceshipsController < ApplicationController
   def index
-    @spaceships = Spaceship.all
+    @spaceships = Spaceship.search(params[:search])
   end
 
   def show
@@ -12,7 +12,7 @@ class SpaceshipsController < ApplicationController
   end
 
   def create
-    @spaceship = Spaceship.new(set_spaceship)
+    @spaceship = Spaceship.new(spaceship_params)
     @spaceship.user_id = current_user.id
     if @spaceship.save
       redirect_to dashboard_path
@@ -29,7 +29,7 @@ class SpaceshipsController < ApplicationController
 
   private
 
-  def set_spaceship
-    params.require(:spaceship).permit(:name, :price, :photo, :description, :max_capacity)
+  def spaceship_params
+    params.require(:spaceship).permit(:name, :price, :photo, :description, :max_capacity, :search)
   end
 end
