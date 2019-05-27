@@ -28,8 +28,10 @@
         <%= cl_image_tag(User.find(@spaceship.user_id).photo, height: 150, width: 150, crop: :fill ) %>
       </div>
       <hr>
-      <%= link_to "Book this spaceship!", new_spaceship_rental_path(params[:id]), class: "btn btn-outline-warning" %>
-      <%= link_to "Back to all spaceships", spaceships_path, class: "btn btn-outline-secondary" %>
     </div>
+  </div>
+  <div class="show-btn d-flex justify-content-between mt-5 pt-5">
+    <%= link_to "Book this spaceship!", new_spaceship_rental_path(params[:id]), class: "btn btn-outline-warning" %>
+    <%= link_to "Back to all spaceships", spaceships_path, class: "btn btn-outline-secondary" %>
   </div>
 </div>
