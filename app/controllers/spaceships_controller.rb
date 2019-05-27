@@ -12,7 +12,7 @@ class SpaceshipsController < ApplicationController
   end
 
   def create
-    @spaceship = Spaceship.new(set_spaceship)
+    @spaceship = Spaceship.new(spaceship_params)
     @spaceship.user_id = current_user.id
     if @spaceship.save
       redirect_to dashboard_path
