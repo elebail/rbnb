@@ -11,11 +11,7 @@
 
     <!-- Tab content -->
     <div id="spaceships" class="tabcontent active">
-      <h3>My Spaceships</h3>
       <ul>
-        <li><div class="card-product add justify-content-center">
-              <h2><%= link_to "+", new_spaceship_path, class: "add-ship stretched-link" %></h2>
-          </div></li>
         <% current_user.spaceships.each do |spaceship| %>
           <li><div class="card-product spaceship-item">
             <%= cl_image_tag spaceship.photo %>
@@ -25,11 +21,13 @@
 
           </div></li>
         <% end %>
+        <li><div class="card-product add justify-content-center">
+              <h2><%= link_to "+", new_spaceship_path, class: "add-ship stretched-link" %></h2>
+            </div></li>
       </ul>
     </div>
 
     <div id="rentals" class="tabcontent">
-      <h3>My Rentals</h3>
       <ul>
         <% current_user.rentals.each do |rental| %>
           <li><div class="card-product">
@@ -51,7 +49,6 @@
     </div>
 
     <div id="pending_rentals" class="tabcontent">
-      <h3>Your Pending Rentals</h3>
       <ul>
         <% current_user.spaceships.each do |spaceship| %>
           <% spaceship.rentals.each do |rental| %>
@@ -59,7 +56,8 @@
               <li><div class="card-product">
                 <%= cl_image_tag Spaceship.find(rental.spaceship_id).photo %>
                 <div class="card-product-infos">
-                  <h2><%= Spaceship.find(rental.spaceship_id).name %></h2>
+                  <h2><%= link_to Spaceship.find(rental.spaceship_id).name, spaceship_path(Spaceship.find(rental.spaceship_id)), class: "stretched-link" %></h2>
+                  <p>From <span class="white"><%= rental.start_date %></span> to <span class="white"><%= rental.end_date %></span></p>
                 </div>
               </div></li>
             <% end %>
