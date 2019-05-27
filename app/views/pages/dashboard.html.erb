@@ -4,13 +4,13 @@
 
     <!-- Tab links -->
     <div class="tab">
-      <button class="tablinks" onclick="openCity(event, 'My Spaceships')">My Spaceships</button>
-      <button class="tablinks" onclick="openCity(event, 'Rentals')">Rentals</button>
-      <button class="tablinks" onclick="openCity(event, 'Pending Rentals')">Pending Rentals</button>
+      <button class="tablinks active" data-tab="spaceships">My Spaceships</button>
+      <button class="tablinks" data-tab="rentals">Rentals</button>
+      <button class="tablinks" data-tab="pending_rentals">Pending Rentals</button>
     </div>
 
     <!-- Tab content -->
-    <div id="My Spaceships" class="tabcontent">
+    <div id="spaceships" class="tabcontent active">
       <h3>My Spaceships</h3>
       <ul>
         <li><div class="card-product add justify-content-center">
@@ -28,7 +28,7 @@
       </ul>
     </div>
 
-    <div id="Rentals" class="tabcontent">
+    <div id="rentals" class="tabcontent">
       <h3>My Rentals</h3>
       <ul>
         <% current_user.rentals.each do |rental| %>
@@ -50,7 +50,7 @@
       </ul>
     </div>
 
-    <div id="Pending Rentals" class="tabcontent">
+    <div id="pending_rentals" class="tabcontent">
       <h3>Your Pending Rentals</h3>
       <ul>
         <% current_user.spaceships.each do |spaceship| %>
@@ -68,74 +68,20 @@
       </ul>
     </div>
 
-    <div class="row">
-      <div class="col-sm-12 col-md-4">
-        <div class="my-spaceships">
-          <div class="dashboard-tabs">
-            <h2>My Spaceships</h2>
-          </div>
-          <ul>
-            <li><div class="card-product add justify-content-center">
-                  <h2><%= link_to "+", new_spaceship_path, class: "add-ship stretched-link" %></h2>
-              </div></li>
-            <% current_user.spaceships.each do |spaceship| %>
-              <li><div class="card-product spaceship-item">
-                <%= cl_image_tag spaceship.photo %>
-                <div class="card-product-infos">
-                  <h2><%= link_to spaceship.name, spaceship_path(spaceship), class: "stretched-link" %></h2>
-                </div>
-
-              </div></li>
-            <% end %>
-          </ul>
-        </div>
-      </div>
-      <div class="col-sm-12 col-md-4">
-        <div class="my-rentals">
-          <div class="dashboard-tabs">
-            <h2>Rentals</h2>
-          </div>
-          <ul>
-            <% current_user.rentals.each do |rental| %>
-              <li><div class="card-product">
-                <%= cl_image_tag Spaceship.find(rental.spaceship_id).photo %>
-                <div class="card-product-infos">
-                  <h2><%= link_to Spaceship.find(rental.spaceship_id).name, spaceship_path(Spaceship.find(rental.spaceship_id)), class: "stretched-link" %></h2>
-                  <p>From <span class="white"><%= rental.start_date %></span> to <span class="white"><%= rental.end_date %></span></p>
-                  <p>Status :
-                    <% if rental.accepted %>
-                      <span class="green">Accepted</span>
-                    <% else %>
-                      <span class="orange">Pending</span>
-                    <% end %>
-                    </p>
-                </div>
-              </div></li>
-            <% end %>
-          </ul>
-        </div>
-      </div>
-      <div class="col-sm-12 col-md-4">
-        <div class="my-spaceships-pending-rentals">
-          <div class="dashboard-tabs">
-            <h2>Pending Rentals</h2>
-          </div>
-          <ul>
-            <% current_user.spaceships.each do |spaceship| %>
-              <% spaceship.rentals.each do |rental| %>
-                <% unless rental.accepted %>
-                  <li><div class="card-product">
-                    <%= cl_image_tag Spaceship.find(rental.spaceship_id).photo %>
-                    <div class="card-product-infos">
-                      <h2><%= Spaceship.find(rental.spaceship_id).name %></h2>
-                    </div>
-                  </div></li>
-                <% end %>
-              <% end %>
-            <% end %>
-          </ul>
-        </div>
-      </div>
-    </div>
   </div>
 </div>
+
+<script>
+  document.querySelectorAll('.tablinks').forEach ( function(element) {
+    element.addEventListener("click", (event) => {
+      document.querySelectorAll('.tablinks').forEach ( function(item) {
+        item.classList.remove("active");
+      });
+      event.currentTarget.classList.add("active");
+      document.querySelectorAll('.tabcontent').forEach (function(item) {
+        item.style.display = "none";
+      });
+      document.getElementById(event.currentTarget.dataset.tab).style.display = "block";
+    });
+  });
+</script>
