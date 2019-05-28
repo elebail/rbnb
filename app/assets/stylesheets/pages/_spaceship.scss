@@ -37,3 +37,18 @@
     border-bottom-width: 2px;
     border-bottom-color: #e67e2e;
 }
+
+.review {
+  padding: 10px;
+  border: 1px solid #e67e2e;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
+.star-rating {
+  color: #e67e2e;
+}
+
+.star-hover:hover {
+  font-weight: bold;
+}

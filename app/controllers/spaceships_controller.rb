@@ -1,7 +1,7 @@
 class SpaceshipsController < ApplicationController
   def index
     if params[:query].present?
-     @spaceships = Spaceship.search(params[:query])
+      @spaceships = Spaceship.search(params[:query])
     else
       @spaceships = Spaceship.all
     end
@@ -9,6 +9,7 @@ class SpaceshipsController < ApplicationController
 
   def show
     @spaceship = Spaceship.find(params[:id])
+    @review = Review.new
     @rental = Rental.new
   end
 
