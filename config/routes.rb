@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   resources :spaceships, only: [:index, :show, :new, :create] do
     resources :rentals, only: [:new, :create]
   end
+resources :search, only: [:index]
 end
