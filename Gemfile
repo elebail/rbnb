@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 ruby '2.5.3'
-
+gem 'pg_search'
 gem 'jquery-ui-rails', '~> 5.0.5'
 gem 'jquery'
 gem 'bootsnap', require: false
