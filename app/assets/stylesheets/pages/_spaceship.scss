@@ -11,8 +11,9 @@
 }
 
 .spaceship-photo {
+  border-radius:5px;
   width: 100%;
-  border: 1px solid #e67e2e;
+  border: 2px solid #e67e2e;
   object-fit: cover;
   overflow: hidden;
 }

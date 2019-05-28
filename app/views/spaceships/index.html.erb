@@ -1,18 +1,21 @@
 <div class="background">
   <div class="container text-center">
     <h1 class="pt-5 text-white">CHOOSE YOUR SPACECRAFT !</h1>
- <%= form_tag(spaceships_path, method: :get) do %>
-   <%= text_field_tag(:search, params[:search], placeholder: "ex: Millennium Falcon", class: "searchTerm") %>
-   <%= submit_tag ("search"), class: "searchButton"%>
- <% end %>
-
-    <div class="row justify-content-center">
-      <% @spaceships.each do |spaceship| %>
-        <div class="col-4">
-          <div class="mx-4 my-5">
-            <div class="card-trip">
-              <img src="<%= spaceship.photo %>" onerror="this.onerror=null;this.src='https://www.hexapolis.com/wp-content/uploads/2014/11/Thomas-Richner_Cardboard-Millennium-Falcon.jpg'">
-              <div class="card-trip-infos">
+    <%= form_tag spaceships_path, method: :get do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "searchTerm",
+        placeholder: "Find a spaceship"
+      %>
+      <%= submit_tag ("search"), class: "searchButton"%>
+    <% end %>
+  <div class="row justify-content-center">
+    <% @spaceships.each do |spaceship| %>
+      <div class="col-4">
+        <div class="mx-4 my-5">
+          <div class="card-trip">
+             <img src="<%= spaceship.photo %>" onerror="this.onerror=null;this.src='https://www.hexapolis.com/wp-content/uploads/2014/11/Thomas-Richner_Cardboard-Millennium-Falcon.jpg'">
+             <div class="card-trip-infos">
                 <div>
                   <h2><%= spaceship.name %></h2>
                 </div>
