@@ -10,7 +10,7 @@
 //Form
 .form-style{
   color:#e67e2e;
-  border: 3px solid #e67e2e;
+  border: 2px solid #e67e2e;
   max-width: 600px;
   padding: 10px 20px;
   margin: 10px auto;
@@ -20,10 +20,9 @@
   font-family: Georgia, "Times New Roman", Times, serif;
 }
 .calendar{
- max-width: 600px;
+  max-width: 600px;
   color:#e67e2e;
-  border: 3px solid #e67e2e;
-
+  border: 2px solid #e67e2e;
   margin: 10px auto;
   padding: 20px;
   background-color: transparent;
@@ -67,31 +66,35 @@
 }
 //Champs du form
 .input {
-  -webkit-appearance: menulist-button;
-  height:35px;
-  background-color: black ;
+  // -webkit-appearance: menulist-button;
+  // height:35px;
+  // background-color: black ;
 }
 // Choisir le fichier
 .photo-input {
   background-color: transparent !important;
 }
 .datepicker{
-  -webkit-appearance: menulist-button;
-  height:35px;
-  background-color: black !important;
+  background-color:transparent!important;
+  // -webkit-appearance: menulist-button;
+  // height:35px;
+  // background-color: black !important;
 }
 .datepicker:hover{
-  -webkit-appearance: menulist-button;
-  height:35px;
-  background-color: white !important;
+  // -webkit-appearance: menulist-button;
+  // height:35px;
+  // background-color: white !important;
 }
-.form-control {
-  -webkit-appearance: menulist-button;
-  height:35px;
-  background-color: black ;
-}
-.form-control:hover {
-  -webkit-appearance: menulist-button;
-  height:35px;
-  background-color: white ;
+// .form-control {
+//   // -webkit-appearance: menulist-button;
+//   height:35px;
+//   background-color: black ;
+// }
+// .form-control:hover {
+//   -webkit-appearance: menulist-button;
+//   height:35px;
+//   background-color: white ;
+// }
+h3 {
+  color: #e67e2e;
 }
