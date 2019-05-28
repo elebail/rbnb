@@ -1,13 +1,20 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-12 col-md-6">
-      <h1><%= @spaceship.name %></h1>
+      <div class="d-flex mt-2">
+        <h1><%= @spaceship.name %></h1>
+        <!--  Owner:<%= User.find(@spaceship.user_id).name %> -->
+        <hr>
+        <%= cl_image_tag(User.find(@spaceship.user_id).photo, height: 150, width: 150, crop: :fill , class: "avatar-bordered-2") %>
+      </div>
+        <div class="d-flex">
+          <hr>
+          <%= User.find(@spaceship.user_id).name %>
+        </div>
       <div class="spaceship-photo">
         <%= cl_image_tag(@spaceship.photo, crop: :fill) %>
       </div>
-    </div>
-    <div class="col-sm-12 col-md-6">
-      <h3>Vessel details:</h3>
+      <hr>
       <table class="table table-bordered">
         <tbody>
           <thead>
@@ -22,16 +29,25 @@
           </tr>
         </tbody>
       </table>
-      <h3>Owner:</h3>
-      <div class="row justify-content-between" id="show-owner-details">
-        <h3><%= User.find(@spaceship.user_id).name %></h3>
-        <%= cl_image_tag(User.find(@spaceship.user_id).photo, height: 150, width: 150, crop: :fill ) %>
-      </div>
       <hr>
     </div>
+    <div class="col-sm-12 col-md-6">
+      <div class="h mt-5">
+        <hr>
+      </div>
+      <div class="form-style mt-5">
+      <%= simple_form_for [@spaceship, @rental] do |f| %>
+        <%= f.input :start_date, as: :string, :input_html => { class: "datepicker" } %>
+        <%= f.input :end_date , as: :string, :input_html => { class: "datepicker" }%>
+        <div class="row justify-content-center">
+        <%= f.button :submit, "Book this spaceship!", class: "book" %>
+        </div>
+      <% end %>
+      </div>
+    </div>
   </div>
-  <div class="show-btn d-flex justify-content-between mt-5 pt-5">
-    <%= link_to "Book this spaceship!", new_spaceship_rental_path(params[:id]), class: "btn btn-outline-warning" %>
+   <div id="h">
     <%= link_to "Back to all spaceships", spaceships_path, class: "btn btn-outline-secondary" %>
-  </div>
 </div>
+
+

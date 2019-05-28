@@ -9,6 +9,7 @@ class SpaceshipsController < ApplicationController
 
   def show
     @spaceship = Spaceship.find(params[:id])
+    @rental = Rental.new
   end
 
   def new
