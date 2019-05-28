@@ -1,0 +1,15 @@
+.book{
+ font-family: Orbitron;
+ font-size: 16px;
+ border-radius: 20px;
+ background-color: #e67e2e;
+ color:white;
+ border: 2px solid #e67e2e;
+ padding: 0 auto;
+}
+.book:hover{
+ border-radius: 20px;
+ background-color: transparent;
+ color: #e67e2e;
+ border: 2px solid #e67e2e;
+}
