@@ -4,6 +4,7 @@
   width: 100%;
   top: 0;
   margin-top: 0px;
+  transition: 0.4s background-color ease;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -15,6 +16,13 @@
   border-radius: 50%;
 }
 
+.navbar-lewagon-scroll {
+  background-color: white;
+  color: white;
+  z-index: 100;
+  position: fixed;
+}
+
 .bordered {
   border-radius: 50%;
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
@@ -22,11 +30,10 @@
 }
 .navbar-jabba {
   color : #e67e2e;
-  font-size: 20px;
+  font-size: 30px;
   text-decoration: none;
 }
 .navbar-jabba:hover {
-  color : #e67e2e;
-  font-size: 20px;
+  color : white;
   text-decoration: none;
 }
