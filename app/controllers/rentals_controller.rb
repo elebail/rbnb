@@ -2,6 +2,13 @@ class RentalsController < ApplicationController
   def new
     @spaceship = Spaceship.find(params[:spaceship_id])
     @rental = Rental.new
+    # @test = @spaceship.rentals.first
+    @taken_dates = @spaceship.rentals
+                             .map { |rental| (rental.start_date..rental.end_date).map {
+                              |date| date.strftime("%F") }
+                             }
+                             .flatten
+                             .uniq
   end
 
   def create
@@ -22,5 +29,4 @@ class RentalsController < ApplicationController
   def rental_params
     params.require(:rental).permit(:start_date, :end_date, :spaceship_id)
   end
-
 end
