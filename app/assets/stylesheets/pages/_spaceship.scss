@@ -11,16 +11,18 @@
 }
 
 .spaceship-photo {
-  border-radius:5px;
-  width: 100%;
   border: 2px solid #e67e2e;
-  object-fit: cover;
+  border-radius:5px;
+  width: 480px;
   overflow: hidden;
+  object-fit: fill;
 }
 
 .spaceship-photo img {
+
+
   border-style: none;
-  max-width:100%;
+  max-width:480px;
   max-height:100%;
 }
 
@@ -37,7 +39,6 @@
     border-bottom-width: 2px;
     border-bottom-color: #e67e2e;
 }
-
 .review {
   padding: 10px;
   border: 1px solid #e67e2e;
@@ -51,4 +52,21 @@
 
 .star-hover:hover {
   font-weight: bold;
+}
+.infos em{
+font-size:14px;
+color:white;
+}
+.smalltext{
+  font-size:10px;
+  color:white;
+}
+tr{
+  font-size:20px;
+}
+td {
+color:#e67e2e;
+}
+th {
+  color:white;
 }
