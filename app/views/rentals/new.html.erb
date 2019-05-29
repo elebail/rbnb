@@ -10,3 +10,12 @@
     </div>
   </div>
 </div>
+
+<script>
+  window.onload = function () {
+    flatpickr(".datepicker",{
+      disable: <%= raw @taken_dates %>,
+      dateFormat: "Y-m-d",
+    });
+  };
+</script>
