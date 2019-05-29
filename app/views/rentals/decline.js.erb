@@ -3,5 +3,5 @@ if (acceptButton) {acceptButton.style.display = 'none';};
 var declineButton = document.getElementById('<%= @rental.id %>-decline');
 declineButton.style.display = 'none';
 var rentalStatus = document.getElementById('<%= @rental.id %>-status')
-rentalStatus.innerHTML = 'Rental status: Cancelled';
+rentalStatus.innerHTML = 'Status: <span class="red">Cancelled</span>';
 
