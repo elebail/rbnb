@@ -1,0 +1,7 @@
+<%= simple_form_for([spaceship, review], remote: true) do |f| %>
+  <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience" %>
+  <%= f.input :content, placeholder: "Give your opinion", :input_html => { :class => 'input' } %>
+  <div class="row justify-content-center">
+    <%= f.button :submit, class: "btna btn-outline-warning" %>
+  </div>
+<% end %>

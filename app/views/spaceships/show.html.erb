@@ -44,8 +44,14 @@
       </div>
     </div>
   </div>
-
-
+  <div class="my-5" id="reviews">
+    <h3 id="review-count"><%= render 'reviews/count', reviews: @spaceship.reviews %></h3>
+    <% @spaceship.reviews.each do |review| %>
+      <%= render 'reviews/show', review: review %>
+    <% end %>
+  </div>
+  <%= render 'reviews/form', spaceship: @spaceship, review: Review.new  %>
+</div>
 
 <script>
   window.onload = function () {
@@ -55,4 +61,3 @@
     });
   };
 </script>
-
