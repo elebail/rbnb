@@ -1,6 +1,6 @@
 <div class="container">
-  <div class="row">
-    <div class="col-sm-12 col-md-6">
+  <div class="row justify-between">
+    <div class="col-sm-12 col-md-8">
       <div class="d-flex mt-2">
         <h1><%= @spaceship.name %></h1><hr>
         <%= cl_image_tag(User.find(@spaceship.user_id).photo, height: 150, width: 150, crop: :fill , class: "avatar-bordered-2") %>
@@ -12,61 +12,40 @@
       <div class="spaceship-photo">
         <%= cl_image_tag(@spaceship.photo, crop: :fill) %>
       </div>
-        <hr>
+      <hr>
       <div class="infos">
-        <h3><i class="far fa-newspaper"></i> Description:</h3><hr>
-        <h5><%= @spaceship.description %></h5>
-        <h3><i class="fas fa-weight-hanging"> </i> Maximum capacity:</h3><hr>
-        <h5><%= @spaceship.max_capacity %></h5>
-        <h3><i class="fas fa-dollar-sign"></i> Price:</h3><hr>
-        <h5><%= @spaceship.price %> $ / day</h5>
+        <table>
+          <tbody>
+            <tr>
+              <td><i class="fas fa-weight-hanging"></i> Maximum capacity:</td>
+              <th class="text-right"><%= @spaceship.max_capacity %></th>
+            </tr>
+            <tr>
+              <td><i class="fas fa-dollar-sign"></i> Price:</td>
+              <th class="text-right"><%= @spaceship.price %> G$ / day</th>
+            </tr>
+            <tr>
+              <td><i class="far fa-newspaper"></i> Description:</td>
+            </tr>
+              <td class="smalltext"><%= @spaceship.description %></td>
+          </tbody>
+        </table>
       </div>
     </div>
-    <div class="col-sm-12 col-md-6">
-      <div class="h mt-5">
-        <hr>
-      </div>
-      <div class="form-style mt-5">
+    <div class="col-sm-12 col-md-4">
+      <div class="form-style mt-5 sticky-form">
         <%= simple_form_for [@spaceship, @rental] do |f| %>
           <%= f.input :start_date, as: :string, :input_html => { class: "datepicker" } %>
           <%= f.input :end_date , as: :string, :input_html => { class: "datepicker" }%>
-<!--           <div class="row justify-content-center"> -->
+           <div class="row justify-content-center"> -->
             <%= f.button :submit, "Book this spaceship!", class: "book" %>
-<!--           </div>
- -->        <% end %>
+           </div>
+         <% end %>
       </div>
     </div>
-  </div>
-  <div id="h">
-    <%= link_to "Back to all spaceships", spaceships_path, class: "btn btn-outline-secondary" %>
   </div>
 
-  <div class="reviews my-5">
-    <h3>Reviews :</h1>
-    <% @spaceship.reviews.each do |review| %>
-      <div class="review d-flex align-items-center">
-        <%= cl_image_tag(User.find(review.user_id).photo, height: 50, width: 50, crop: :fill, class: 'avatar avatar-bordered') %>
-        <div class="review-infos ml-4">
-          <p class= "mb-0">
-            <% review.rating.times do %>
-            <i class="fas fa-star star-rating"></i>
-            <% end %>
-            <% (5 - review.rating).times do %>
-            <i class="far fa-star star-rating"></i>
-            <% end %></p>
-          <p class= "mb-0"><%= review.content %></p>
-        </div>
-      </div>
-    <% end %>
-  </div>
-  <%= simple_form_for [@spaceship, @review] do |f| %>
-    <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience" %>
-    <%= f.input :content, placeholder: "Give your opinion", :input_html => { :class => 'input' } %>
-    <div class="row justify-content-center">
-      <%= f.button :submit, class: "btna btn-outline-warning" %>
-    </div>
-  <% end %>
-</div>
+
 
 <script>
   window.onload = function () {
@@ -76,3 +55,4 @@
     });
   };
 </script>
+
