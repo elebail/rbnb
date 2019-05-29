@@ -11,8 +11,9 @@
 }
 
 .spaceship-photo {
+  border-radius:5px;
   width: 100%;
-  border: 1px solid #e67e2e;
+  border: 2px solid #e67e2e;
   object-fit: cover;
   overflow: hidden;
 }
@@ -35,4 +36,19 @@
 .table-bordered thead th, .table-bordered thead td {
     border-bottom-width: 2px;
     border-bottom-color: #e67e2e;
+}
+
+.review {
+  padding: 10px;
+  border: 1px solid #e67e2e;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
+.star-rating {
+  color: #e67e2e;
+}
+
+.star-hover:hover {
+  font-weight: bold;
 }
