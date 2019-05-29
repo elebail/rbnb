@@ -14,6 +14,7 @@
   border: 2px solid #e67e2e;
   border-radius:5px;
   width: 480px;
+  justify-content: center;
   overflow: hidden;
   object-fit: fill;
 }
@@ -69,4 +70,47 @@ color:#e67e2e;
 }
 th {
   color:white;
+}
+
+.review-border {
+  border-top: 1px solid #e67e2e;
+  margin-top: 50px;
+}
+
+#table-spaceship-infos {
+  width: 100%;
+}
+
+.form-review-title label {
+  font-size: 20px;
+  color:#e67e2e;
+}
+
+.reviews-title {
+  font-size: 20px;
+  color:#e67e2e;
+}
+
+.form-review-content label {
+  display: none;
+}
+
+.form-review-content textarea{
+  background-color: transparent;
+  color: white;
+  letter-spacing: 2px;
+}
+
+.form-review-content textarea:focus{
+  background-color: transparent;
+  color: white;
+  letter-spacing: 2px;
+}
+
+.date-input-rental input {
+  color: white;
+}
+
+.date-input-rental input:focus {
+  color: white;
 }
