@@ -1,39 +1,58 @@
 .navbar-lewagon {
   justify-content: space-between;
   position: fixed;
-  width: 100%;
   top: 0;
   margin-top: 0px;
+  width: 100%;
+  font-size: 35px;
   transition: 0.4s background-color ease;
+
+  .navbar-collapse {
+    flex-grow: 0;
+  }
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
+.navbar-jabba {
+  color : #e67e2e;
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: none;
+
+  &:hover {
+    color : white;
+    text-decoration: none;
+  }
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
-  border-radius: 50%;
+.nav-link i {
+  color: #E67D2D;
+  &:hover {
+  color: white;
+  }
 }
 
 .navbar-lewagon-scroll {
   background-color: white;
-  color: white;
   z-index: 100;
   position: fixed;
+
+  .navbar-jabba:hover {
+    color: black;
+  }
+
+  .nav-link i:hover {
+    color: black;
+  }
 }
 
-.bordered {
-  border-radius: 50%;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
-  border: white 2px solid;
-}
-.navbar-jabba {
-  color : #e67e2e;
-  font-size: 30px;
-  text-decoration: none;
-}
-.navbar-jabba:hover {
-  color : white;
-  text-decoration: none;
-}
+
+// .bordered {
+//   border-radius: 50%;
+//   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+//   border: white 2px solid;
+// }
+
+// .navbar-brand img {
+//   width: 40px;
+//   border-radius: 50%;
+// }
