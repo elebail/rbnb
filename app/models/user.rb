@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :rentals
   has_many :spaceships
+  has_many :rental_requests, through: :spaceships, source: :rentals
 
   mount_uploader :photo, PhotoUploader
 

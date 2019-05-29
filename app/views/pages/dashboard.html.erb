@@ -5,8 +5,8 @@
     <!-- Tab links -->
     <div class="tab">
       <button class="tablinks active" data-tab="spaceships">My Spaceships</button>
-      <button class="tablinks" data-tab="rentals">Rentals</button>
-      <button class="tablinks" data-tab="pending_rentals">Pending Rentals</button>
+      <button class="tablinks" data-tab="rentals">My bookings</button>
+      <button class="tablinks" data-tab="pending_rentals">Rental Requests</button>
     </div>
 
     <!-- Tab content -->
@@ -38,8 +38,10 @@
               <p>Status :
                 <% if rental.accepted %>
                   <span class="green">Accepted</span>
-                <% else %>
+                <% elsif rental.accepted.nil? %>
                   <span class="orange">Pending</span>
+                <% else %>
+                  <span class="red">Cancelled</span>
                 <% end %>
                 </p>
             </div>
@@ -51,41 +53,42 @@
     <div id="pending_rentals" class="tabcontent">
       <ul>
         <% current_user.spaceships.each do |spaceship| %>
-          <% spaceship.rentals.each do |rental| %>
-            <% if rental.accepted %>
-              <li><div class="card-product">
-                <%= cl_image_tag Spaceship.find(rental.spaceship_id).photo %>
-                <div class="card-product-infos">
-                  <h2><%= link_to Spaceship.find(rental.spaceship_id).name, spaceship_path(Spaceship.find(rental.spaceship_id)) %></h2>
+          <% @pending_rentals.each do |rental| %>
+            <li><div class="card-product">
+              <%= cl_image_tag Spaceship.find(rental.spaceship_id).photo %>
+              <div class="card-product-infos">
+                <h2><%= link_to Spaceship.find(rental.spaceship_id).name, spaceship_path(Spaceship.find(rental.spaceship_id)) %></h2>
                   <!-- <p class="stretched-link"></p> -->
-                  <p id= '<%= rental.id %>-status' >Status: Rental Accepted</p>
+                  <p id= '<%= rental.id %>-status' >Status: <span class="orange">Pending</span></p>
                   <p>From <span class="white"><%= rental.start_date %></span> to <span class="white"><%= rental.end_date %></span></p>
                 </div>
-               <%= link_to 'Cancel',  rental_decline_path(rental), class: "decline-button btn btn-outline-warning mx-4", id:"#{rental.id}-decline", :remote => true %></p>
-              </div></li>
-            <% elsif rental.accepted.nil? %>
-              <li><div class="card-product">
-                <%= cl_image_tag Spaceship.find(rental.spaceship_id).photo %>
-                <div class="card-product-infos">
-                  <h2><%= link_to Spaceship.find(rental.spaceship_id).name, spaceship_path(Spaceship.find(rental.spaceship_id)) %></h2>
-                  <!-- <p class="stretched-link"></p> -->
-                  <p id= '<%= rental.id %>-status' >Status: Rental Pending</p>
-                  <p>From <span class="white"><%= rental.start_date %></span> to <span class="white"><%= rental.end_date %></span></p>
-                </div>
-               <%= link_to 'Accept', rental_accept_path(rental), class: "accept-button btn btn-outline-warning mx-4", id:"#{rental.id}-accept", :remote => true %></p>
+                <%= link_to 'Accept', rental_accept_path(rental), class: "accept-button btn btn-outline-warning mx-4", id:"#{rental.id}-accept", :remote => true %></p>
                 <%= link_to 'Decline',  rental_decline_path(rental), class: "cancel-button btn btn-outline-warning mx-4", id:"#{rental.id}-decline", :remote => true %>
-              </div></li>
-              <% else %>
-                <li><div class="card-product">
+            </div></li>
+          <% end %>
+          <% @accepted_rentals.each do |rental| %>
+            <li><div class="card-product">
                 <%= cl_image_tag Spaceship.find(rental.spaceship_id).photo %>
                 <div class="card-product-infos">
                   <h2><%= link_to Spaceship.find(rental.spaceship_id).name, spaceship_path(Spaceship.find(rental.spaceship_id)) %></h2>
                   <!-- <p class="stretched-link"></p> -->
-                  <p id= '<%= rental.id %>-status' >Status: Rental Declined</p>
+                  <p id= '<%= rental.id %>-status' >Status: <span class="green">Accepted</span></p>
+                  <p>From <span class="white"><%= rental.start_date %></span> to <span class="white"><%= rental.end_date %></span></p>
                 </div>
               </div></li>
-            <% end %>
           <% end %>
+              <%# else %>
+          <% @declined_rentals.each do |rental| %>
+            <li><div class="card-product">
+              <%= cl_image_tag Spaceship.find(rental.spaceship_id).photo %>
+              <div class="card-product-infos">
+                <h2><%= link_to Spaceship.find(rental.spaceship_id).name, spaceship_path(Spaceship.find(rental.spaceship_id)) %></h2>
+                <!-- <p class="stretched-link"></p> -->
+                <p id= '<%= rental.id %>-status' >Status: <span class="red">Declined</span></p>
+                </div>
+            </div></li>
+          <% end %>
+
         <% end %>
       </ul>
     </div>
