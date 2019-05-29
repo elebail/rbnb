@@ -11,6 +11,12 @@ class SpaceshipsController < ApplicationController
     @spaceship = Spaceship.find(params[:id])
     @review = Review.new
     @rental = Rental.new
+    @taken_dates = @spaceship.rentals
+                             .map { |rental| (rental.start_date..rental.end_date).map {
+                                 |date| date.strftime("%F") }
+                             }
+                             .flatten
+                             .uniq
   end
 
   def new

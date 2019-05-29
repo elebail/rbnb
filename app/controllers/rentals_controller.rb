@@ -2,12 +2,9 @@ class RentalsController < ApplicationController
   def new
     @spaceship = Spaceship.find(params[:spaceship_id])
     @rental = Rental.new
-    # @test = @spaceship.rentals.first
     @taken_dates = @spaceship.rentals
-                             .map { |rental|
-                               (rental.start_date..rental.end_date).map {
-                                 |date| date.strftime("%F")
-                               }
+                             .map { |rental| (rental.start_date..rental.end_date).map {
+                                 |date| date.strftime("%F") }
                              }
                              .flatten
                              .uniq
@@ -32,7 +29,7 @@ class RentalsController < ApplicationController
     @rental.save
     respond_to do |format|
       format.html { redirect_to dashboard_path }
-      format.js  # <-- will render `app/views/reviews/create.js.erb`
+      format.js # <-- will render `app/views/reviews/create.js.erb`
     end
   end
 
