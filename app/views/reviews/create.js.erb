@@ -7,7 +7,7 @@ function refreshForm(innerHTML) {
 
 function addReview(reviewHTML) {
   const reviews = document.getElementById('reviews');
-  reviews.insertAdjacentHTML('beforeend', reviewHTML);
+  reviews.insertAdjacentHTML('afterbegin', reviewHTML);
 }
 
 function updateCount(newCount) {
@@ -17,6 +17,7 @@ function updateCount(newCount) {
 
 <% if @review.errors.any? %>
   refreshForm('<%= j render "reviews/form", spaceship: @spaceship, review: @review %>');
+  initStarRating();
 <% else %>
   addReview('<%= j render "reviews/show", review: @review %>');
   updateCount('<%= j render "reviews/count", reviews: @spaceship.reviews %>');
