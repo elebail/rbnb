@@ -37,45 +37,22 @@
         <%= simple_form_for [@spaceship, @rental] do |f| %>
           <%= f.input :start_date, as: :string, :input_html => { class: "datepicker" } %>
           <%= f.input :end_date , as: :string, :input_html => { class: "datepicker" }%>
-          <div class="row justify-content-center">
+           <div class="row justify-content-center"> -->
             <%= f.button :submit, "Book this spaceship!", class: "book" %>
-          </div>
-        <% end %>
+           </div>
+         <% end %>
       </div>
     </div>
   </div>
 
 
 
-
-
-
-
-  <div class="reviews my-5">
-    <h3>Reviews :</h1>
-    <% @spaceship.reviews.each do |review| %>
-      <div class="review d-flex align-items-center">
-        <%= cl_image_tag(User.find(review.user_id).photo, height: 50, width: 50, crop: :fill, class: 'avatar avatar-bordered') %>
-        <div class="review-infos ml-4">
-          <p class= "mb-0">
-            <% review.rating.times do %>
-            <i class="fas fa-star star-rating"></i>
-            <% end %>
-            <% (5 - review.rating).times do %>
-            <i class="far fa-star star-rating"></i>
-            <% end %></p>
-          <p class= "mb-0"><%= review.content %></p>
-        </div>
-      </div>
-    <% end %>
-  </div>
- <%= simple_form_for [@spaceship, @review] do |f| %>
-  <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience" %>
-   <%= f.input :content, placeholder: "Give your opinion", :input_html => { :class => 'input' } %>
-   <div class="row justify-content-center">
-     <%= f.button :submit, class: "btna btn-outline-warning" %>
-    <% end %>
-   </div>
-
-
+<script>
+  window.onload = function () {
+    flatpickr(".datepicker",{
+      disable: <%= raw @taken_dates %>,
+      dateFormat: "Y-m-d",
+    });
+  };
+</script>
 
