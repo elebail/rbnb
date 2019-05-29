@@ -53,7 +53,6 @@
 
     <div id="pending_rentals" class="tabcontent">
       <ul>
-        <% current_user.spaceships.each do |spaceship| %>
           <% @pending_rentals.each do |rental| %>
             <li><div class="card-product">
               <%= cl_image_tag Spaceship.find(rental.spaceship_id).photo %>
@@ -89,8 +88,6 @@
                 </div>
             </div></li>
           <% end %>
-
-        <% end %>
       </ul>
     </div>
 
