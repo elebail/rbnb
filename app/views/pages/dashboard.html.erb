@@ -17,6 +17,7 @@
             <%= cl_image_tag spaceship.photo %>
             <div class="card-product-infos">
               <h2><%= link_to spaceship.name, spaceship_path(spaceship), class: "stretched-link" %></h2>
+              <p>Maximum capacity: <%= spaceship.max_capacity %></p>
             </div>
 
           </div></li>
