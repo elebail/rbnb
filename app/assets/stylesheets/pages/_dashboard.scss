@@ -33,6 +33,11 @@
   font-weight: bold;
 }
 
+.red {
+  color: $red;
+  font-weight: bold;
+}
+
 .white {
   color: white;
   font-weight: bold;
@@ -68,6 +73,8 @@
   padding: 14px 16px;
   transition: 0.3s;
   font-size: 20px;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
 }
 
 .tab button:hover {
