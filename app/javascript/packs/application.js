@@ -7,4 +7,6 @@ import { initUpdateNavbarOnScroll } from '../components/navbar';
 initUpdateNavbarOnScroll();
 import { initStarRating } from '../plugins/init_star_rating';
 
+global.initStarRating = initStarRating;
+
 initStarRating();

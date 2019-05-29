@@ -41,29 +41,11 @@
     <%= link_to "Back to all spaceships", spaceships_path, class: "btn btn-outline-secondary" %>
   </div>
 
-  <div class="reviews my-5">
-    <h3>Reviews :</h1>
+  <div class="my-5" id="reviews">
+    <h3 id="review-count"><%= render 'reviews/count', reviews: @spaceship.reviews %></h3>
     <% @spaceship.reviews.each do |review| %>
-      <div class="review d-flex align-items-center">
-        <%= cl_image_tag(User.find(review.user_id).photo, height: 50, width: 50, crop: :fill, class: 'avatar avatar-bordered') %>
-        <div class="review-infos ml-4">
-          <p class= "mb-0">
-            <% review.rating.times do %>
-            <i class="fas fa-star star-rating"></i>
-            <% end %>
-            <% (5 - review.rating).times do %>
-            <i class="far fa-star star-rating"></i>
-            <% end %></p>
-          <p class= "mb-0"><%= review.content %></p>
-        </div>
-      </div>
+      <%= render 'reviews/show', review: review %>
     <% end %>
   </div>
- <%= simple_form_for [@spaceship, @review] do |f| %>
-  <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience" %>
-   <%= f.input :content, placeholder: "Give your opinion", :input_html => { :class => 'input' } %>
-   <div class="row justify-content-center">
-     <%= f.button :submit, class: "btna btn-outline-warning" %>
-   </div>
- <% end %>
+  <%= render 'reviews/form', spaceship: @spaceship, review: Review.new  %>
 </div>
