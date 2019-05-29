@@ -1,6 +1,6 @@
 var acceptButton = document.getElementById('<%= @rental.id %>-accept');
 acceptButton.style.display = 'none';
 var rentalStatus = document.getElementById('<%= @rental.id %>-status')
-rentalStatus.innerHTML = 'Rental status: Accepted';
+rentalStatus.innerHTML = 'Accepted';
 var declineButton = document.getElementById('<%= @rental.id %>-decline');
 declineButton.innerHTML = 'Cancel';

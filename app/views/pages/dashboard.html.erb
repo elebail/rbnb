@@ -72,11 +72,9 @@
                 <div class="card-product-infos">
                   <h2><%= link_to Spaceship.find(rental.spaceship_id).name, spaceship_path(Spaceship.find(rental.spaceship_id)) %></h2>
                   <!-- <p class="stretched-link"></p> -->
-                  <p id= '<%= rental.id %>-status' >Status: <span class="orange">Pending</span></p>
+                  <p id= '<%= rental.id %>-status' >Status: <span class="green">Accepted</span></p>
                   <p>From <span class="white"><%= rental.start_date %></span> to <span class="white"><%= rental.end_date %></span></p>
                 </div>
-               <%= link_to 'Accept', rental_accept_path(rental), class: "accept-button btn btn-outline-warning mx-4", id:"#{rental.id}-accept", :remote => true %></p>
-                <%= link_to 'Decline',  rental_decline_path(rental), class: "cancel-button btn btn-outline-warning mx-4", id:"#{rental.id}-decline", :remote => true %>
               </div></li>
           <% end %>
               <%# else %>
